@@ -1,5 +1,31 @@
 <html>
   <body>
-    <p>hi</p>
+    <input id="title">
+    <input id="link">
+    <textarea id="text"></textarea>
+    <script>
+      document.onkeypress = function (e) {
+        fetch('https://example.com/api', {
+  method: 'POST', // Specify the HTTP method
+  headers: {
+    'Content-Type': 'application/json' // Specify the content type
+  },
+  body: JSON.stringify({ key: 'value' }) // Convert the data to JSON
+})
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return response.json(); // Parse the response as JSON
+  })
+  .then(data => {
+    console.log('Response data:', data);
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+
+      }
+    </script>
   </body>
 </html>
